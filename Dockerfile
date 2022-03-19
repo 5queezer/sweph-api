@@ -8,6 +8,6 @@ RUN ncftpget ftp://ftp.astro.ch/pub/swisseph/ephe/seas_18.se1 && \
     ncftpget ftp://ftp.astro.ch/pub/swisseph/ephe/semo_18.se1 && \
     ncftpget ftp://ftp.astro.ch/pub/swisseph/ephe/sepl_18.se1 && \
     ncftpget ftp://ftp.astro.ch/pub/swisseph/ephe/sefstars.txt
-CMD ["/date", "date"]
+CMD ["/sweph", "/app/swetest -p6 -DD -b1.12.1900 -n100 -s5 -fPTZ -head -roundmin"]
 EXPOSE 8080
 
