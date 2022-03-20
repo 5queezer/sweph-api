@@ -8,7 +8,7 @@ RUN [[ -f $swe ]] && ncftpget ftp://ftp.astro.ch/pub/swisseph/${swe}
 RUN tar -xf ${swe} && rm ${swe}
 RUN cd src && make && mv swetest .. && cd .. && rm -rf doc src
 COPY libs.txt .
-# RUN while read line; do ncftpget ftp://ftp.astro.ch/pub/swisseph/ephe/$line; done < libs.txt 
+RUN while read line; do ncftpget ftp://ftp.astro.ch/pub/swisseph/ephe/$line; done < libs.txt 
 COPY auto-dl.sh .
 CMD ["-form", "/sweph", "/app/auto-dl.sh $v_cmd"]
 EXPOSE 8080
